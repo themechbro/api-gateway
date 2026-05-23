@@ -12,14 +12,17 @@ const { loadRoutes } = require("./core/router");
 const adminRoutes = require("./routes/admin");
 const logger = require("./core/logger");
 const cors = require("cors");
-app.use(
-  cors({
-    origin: [
-      "http://localhost:3000",
-      "https://gateway-dashboard-eta.vercel.app/",
-    ],
-  }),
-);
+// app.use(
+//   cors({
+//     origin: [
+//       "http://localhost:3000",
+//       "https://gateway-dashboard-eta.vercel.app/",
+//     ],
+//   }),
+// );
+
+app.use(cors());
+
 app.use(express.json());
 
 // Admin API- no auth, manages route config
