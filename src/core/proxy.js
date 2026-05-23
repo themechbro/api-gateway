@@ -11,6 +11,10 @@ async function proxyRequest(req, res) {
         error: (err) => reject(err),
         proxyRes: () => resolve(),
       },
+      headers: {
+        "x-forwarded-for":
+          req.headers["x-forwarded-for"] || req.ip || req.socket.remoteAddress,
+      },
     });
 
     proxy(req, res, (err) => {
