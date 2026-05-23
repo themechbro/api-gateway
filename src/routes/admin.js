@@ -13,7 +13,7 @@ router.get("/routes", async (req, res) => {
 
 // Add routes
 router.post("/routes", async (req, res) => {
-  const { path_prefix, target_url, requires_path } = req.body;
+  const { path_prefix, target_url, requires_auth } = req.body;
   const { rows } = await pool.query(
     `INSERT INTO routes (path_prefix, target_url, requires_auth)
      VALUES ($1, $2, $3) RETURNING *`,
